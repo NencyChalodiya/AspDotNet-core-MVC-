@@ -1,0 +1,42 @@
+﻿@model WebApplication.ViewModels.HomeDetailsViewModel
+@addTagHelper *,Microsoft.AspNetCore.Mvc.TagHelpers
+
+@{
+	Layout = "~/views/shared/_Layout.cshtml";
+	ViewBag.Title = "Employee Detailes";
+	var photoPath = "~/images/" + (Model.Employee.PhotoPath ?? "imagePro.jpg");
+}
+
+<div class="row justify-content-center m-3" style=" width: 30rem">
+		   <h3>@Model.PageTitle</h3> 
+<div class="card-deck">
+
+		<div class="card m-3">
+			<div class="card-header">
+			<h3> @Model.Employee.Name</h3>
+
+			</div>
+
+			<div class="card-body text-center">
+				<img class="card-img-top" src="@photoPath" asp-append-version="true" />
+				<h4>Employee ID : @Model.Employee.Id</h4>
+			<h4>Email       : @Model.Employee.Email</h4>
+			<h4>Department  :@Model.Employee.Department</h4>
+			</div>
+			<div class="card-footer text-center">
+				<a asp-controller="home" asp-action="index" class="btn btn-primary">Back</a>
+				<a asp-action="edit" asp-controller="home" asp-route-id="@Model.Employee.Id" class="btn btn-primary">Edit</a>
+				<a href="#" class="btn btn-danger">Delete</a>
+			</div>
+
+		</div>
+
+
+
+
+	
+
+</div>
+
+</div>
+
